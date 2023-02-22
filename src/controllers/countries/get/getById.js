@@ -8,10 +8,8 @@ const getbyId = async (id) => {
     },
     include: {
         model: Activity,
-        attributes: ["name"],
-        through: {
-          attributes: [],
-        },
+        attributes: ["id"],
+        through: 'Country_Activity',
       },
   });
 

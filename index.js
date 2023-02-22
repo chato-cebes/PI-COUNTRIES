@@ -24,7 +24,7 @@ const PORT = 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(async() => {
-  await saveApiData();
+  //await saveApiData();
   console.log("Connection has been established successfully.");
   server.listen(PORT, () => {
     console.log(`listening on https://localhost:${PORT}`); // eslint-disable-line no-console

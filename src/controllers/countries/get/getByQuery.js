@@ -14,6 +14,7 @@ const getByQuery = async (name) => {
   });
 
   if (queryname.length) {
+    console.log("esto es query",queryname.id);
     return queryname;
   } else {
     throw new Error(`Name ${name} not found in database`);

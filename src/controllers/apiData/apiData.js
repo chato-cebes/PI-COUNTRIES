@@ -12,7 +12,7 @@ const getApiData = async() => {
 
         return {
         id: item.cca3,
-        name: item.name.official,
+        name: item.name.common,
         flag: item.flags[1],
         region: item.region,
         subregion: item.subregion? item.subregion: "",

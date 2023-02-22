@@ -2,12 +2,12 @@ const { DataTypes } = require ("sequelize");
 
 module.exports = (sequelize) =>{
     sequelize.define( "Activity", {
-        id: {
+        /* id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-        },
-        name: {
+        }, */
+        activityName: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
@@ -21,11 +21,15 @@ module.exports = (sequelize) =>{
             allowNull: false
         },
         time: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TIME(4),
             allowNull: false
         },
         season: {
             type: DataTypes.ENUM ("Summer", "Autumn", "Winter", "Spring"),
+            allowNull: false
+        },
+        country: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false
         },
     },
