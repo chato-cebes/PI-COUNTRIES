@@ -1,13 +1,13 @@
 const axios = require('axios');
-const { Country, Activity } = require("../../db")
+const { Country } = require("../../db")
 
 const getApiData = async() => {
     const getApi = await axios.get('https://restcountries.com/v3/all');
     const mapApiData = await getApi.data.map(item=>{
         
-        let languageMap = "";
+        let languageMap = [];
         for (const key in item.languages) {
-            languageMap = (item.languages[key])+ ", " + languageMap ;                
+            languageMap.push(item.languages[key]);                
         }
 
         return {
@@ -17,7 +17,7 @@ const getApiData = async() => {
         region: item.region,
         subregion: item.subregion? item.subregion: "",
         capital: item.capital? item.capital[0]: "",
-        languages: languageMap,
+        languages: languageMap.join(", "),
         area: item.area? item.area: "",
         population: item.population,
     };
@@ -33,20 +33,7 @@ const saveApiData = async () =>{
 }
 
 
-const getDatabase = async () => {
-    return await Country.findAll({
-        includes:{
-            model: Activity,
-            attributes: ['name'],
-            through:{
-                attributes: [],
-            },
-        }
-    })
-}
-
 module.exports ={
     getApiData,
-    getDatabase,
     saveApiData,
 }

@@ -22,9 +22,9 @@ const { conn } = require('./src/db.js');
 const { saveApiData } = require('./src/controllers/apiData/apiData.js')
 const PORT = 3001;
 
-saveApiData();
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(async() => {
+  await saveApiData();
   console.log("Connection has been established successfully.");
   server.listen(PORT, () => {
     console.log(`listening on https://localhost:${PORT}`); // eslint-disable-line no-console

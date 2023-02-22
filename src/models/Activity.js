@@ -12,12 +12,16 @@ module.exports = (sequelize) =>{
             unique: true,
             allowNull: false,
         },
+        description: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
         difficulty: {
             type: DataTypes.ENUM ("1", "2", "3", "4", "5"),
             allowNull: false
         },
         time: {
-            type: DataTypes.DATE(4),
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         season: {

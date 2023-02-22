@@ -1,10 +1,7 @@
-const { getApiData, getDatabase } = require("../../apiData/apiData");
+const { Country, Activity } = require ('../../../db');
 
 const getAllCountries = async () => {
-  const apiData = await getApiData();
-  const DBData = await getDatabase();
-  const dataTot = apiData.concat(DBData);
-  return dataTot;
+    return await Country.findAll()
 };
 
 
