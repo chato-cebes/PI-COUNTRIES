@@ -15,7 +15,6 @@ const createPost = async (
       difficulty,
       time,
       season,
-      country,
     });
 
     const findcountry = await Country.findAll({
@@ -25,8 +24,8 @@ const createPost = async (
     });
 
     newPost.addCountry(findcountry);
+    return 
 
-    return newPost;
   } catch (error) {
     return { error: error.message };
   }

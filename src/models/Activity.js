@@ -28,10 +28,11 @@ module.exports = (sequelize) =>{
             type: DataTypes.ENUM ("Summer", "Autumn", "Winter", "Spring"),
             allowNull: false
         },
-        country: {
+        /* country: {
             type: DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: false
+            allowNull: false 
         },
+        */
     },
     {
         timestamps : false,
