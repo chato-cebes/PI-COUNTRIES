@@ -10,9 +10,16 @@ const getApiData = async() => {
             languageMap.push(item.languages[key]);                
         }
 
+        for(const key in item.currencies ){
+            tag = [key];
+            divisa= item.currencies[key];        
+        }
+        
+      
         return {
         id: item.cca3,
         name: item.name.common,
+        officialName: item.name.official,
         flag: item.flags[1],
         region: item.region,
         subregion: item.subregion? item.subregion: "",
@@ -20,6 +27,10 @@ const getApiData = async() => {
         languages: languageMap.join(", "),
         area: item.area? item.area: "",
         population: item.population,
+        map: item.maps.openStreetMaps? item.maps.openStreetMaps: "",
+        currencyTag: tag[0],
+        currencyName: divisa.name? divisa.name: "",
+        currencySymbol: divisa.symbol? divisa.symbol: "",
     };
 });
     return mapApiData;

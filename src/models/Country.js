@@ -21,6 +21,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      officialName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       flag: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -47,6 +51,22 @@ module.exports = (sequelize) => {
       },
       population: {
         type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      map: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      currencyTag: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      currencyName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      currencySymbol: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },
